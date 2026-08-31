@@ -1,5 +1,6 @@
 /* ==============================
-   IPL Ticket Booking - Activity 2
+   IPL Ticket Booking - Activity 3
+   Responsive Layout
    ============================== */
 
 /* CSS Variables */
@@ -11,7 +12,7 @@
     --white: #ffffff;
 }
 
-/* General Styling */
+/* General */
 * {
     box-sizing: border-box;
 }
@@ -27,7 +28,14 @@ body {
     color: var(--text);
 }
 
-/* Navigation Bar */
+section {
+    padding: 70px 40px;
+}
+
+/* ==============================
+   Navigation - Flexbox
+   ============================== */
+
 header {
     background-color: var(--primary);
     padding: 15px 30px;
@@ -48,9 +56,9 @@ nav h1 {
 }
 
 nav ul {
-    list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 25px;
+    list-style: none;
 }
 
 nav a {
@@ -62,12 +70,10 @@ nav a:hover {
     color: var(--accent);
 }
 
-/* Main Sections */
-section {
-    padding: 70px 40px;
-}
+/* ==============================
+   Hero Section
+   ============================== */
 
-/* Hero Section */
 #home {
     min-height: 450px;
     padding-top: 150px;
@@ -85,47 +91,53 @@ section {
     font-size: 40px;
 }
 
-#home p {
-    font-size: 18px;
-}
-
-/* Buttons */
-#home a,
-button {
+#home a {
     display: inline-block;
     padding: 12px 20px;
     margin: 10px;
     background-color: var(--accent);
     color: var(--primary);
     text-decoration: none;
-    border: none;
     border-radius: 6px;
-    cursor: pointer;
     font-weight: bold;
 }
 
-#home a:hover,
-button:hover {
+#home a:hover {
     background-color: #e6b800;
 }
 
-/* Section Headings */
+/* ==============================
+   Section Headings
+   ============================== */
+
 section > h2 {
     text-align: center;
     color: var(--primary);
     margin-bottom: 30px;
 }
 
-/* Lists */
+/* ==============================
+   About Section
+   ============================== */
+
 #about ul {
     background-color: var(--white);
     padding: 20px 40px;
     border-radius: 8px;
 }
 
-/* Tables */
+/* ==============================
+   Tables
+   ============================== */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
 table {
     width: 100%;
+    min-width: 800px;
     border-collapse: collapse;
     background-color: var(--white);
     margin-top: 20px;
@@ -147,14 +159,24 @@ tr:hover {
     background-color: #eef2ff;
 }
 
-/* Forms */
+/* ==============================
+   Booking Layout - CSS Grid
+   ============================== */
+
+.booking-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+/* Booking Form */
+
 form {
     background-color: var(--white);
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: auto;
 }
 
 label {
@@ -170,12 +192,24 @@ select {
     border-radius: 5px;
 }
 
-/* Booking Summary Card */
+button {
+    padding: 12px 20px;
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #176b87;
+}
+
+/* Booking Summary */
+
 aside {
     background-color: var(--white);
     padding: 25px;
-    margin: 30px auto;
-    max-width: 600px;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
@@ -184,7 +218,10 @@ aside h3 {
     color: var(--primary);
 }
 
-/* Guidelines Cards */
+/* ==============================
+   Guidelines
+   ============================== */
+
 article {
     background-color: var(--white);
     padding: 20px;
@@ -197,7 +234,10 @@ article h3 {
     color: var(--primary);
 }
 
-/* Footer */
+/* ==============================
+   Footer
+   ============================== */
+
 footer {
     background-color: var(--primary);
     color: var(--white);
@@ -205,27 +245,64 @@ footer {
     padding: 20px;
 }
 
-/* Basic Responsive Design */
-@media (max-width: 768px) {
+/* ==============================
+   Tablet Layout
+   ============================== */
+
+@media (max-width: 900px) {
+
     nav {
         flex-direction: column;
     }
 
     nav ul {
-        flex-direction: column;
-        text-align: center;
         padding: 0;
     }
 
+    .booking-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==============================
+   Mobile Layout
+   ============================== */
+
+@media (max-width: 600px) {
+
     section {
-        padding: 60px 20px;
+        padding: 60px 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    nav h1 {
+        font-size: 22px;
     }
 
     #home h2 {
-        font-size: 30px;
+        font-size: 28px;
+    }
+
+    #home p {
+        font-size: 16px;
+    }
+
+    .booking-container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    form,
+    aside {
+        width: 100%;
     }
 
     table {
-        font-size: 14px;
+        min-width: 800px;
     }
 }
